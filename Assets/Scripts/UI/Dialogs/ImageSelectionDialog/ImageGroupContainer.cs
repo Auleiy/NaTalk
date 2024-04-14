@@ -33,11 +33,12 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
                 ts.sizeDelta = new(ts.sizeDelta.x, 0);
         }
 
-        public GameObject Add(string type)
+        public GameObject Add(string type, string file)
         {
             GameObject go = Instantiate(Template, transform);
             ImageSelectionGroup sg = go.GetComponent<ImageSelectionGroup>();
             sg.Name = type;
+            sg.File = file;
             go.SetActive(true);
             Groups.Add(sg);
             return go;

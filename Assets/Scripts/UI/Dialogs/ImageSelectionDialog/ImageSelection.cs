@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace NPT.UI.Dialogs.ImageSelectionDialog
 {
+    [RequireComponent(typeof(HoverTooltip))]
     public class ImageSelection : MonoBehaviour
     {
         public Image ImageUI;
@@ -16,7 +17,7 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
         public void Update()
         {
             HoverTooltip tt = GetComponent<HoverTooltip>();
-            tt.Text = $"{Group.Name} - {Name}";
+            tt.Text = $"{Group.File}.{Group.Name}.{Name}";
             ImageUI.sprite = Image;
         }
     }

@@ -19,8 +19,7 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
         public void Load()
         {
             OpenFileDialog.Reinitialize("打开图片信息", "sk_ImageLoader", (false, "C:\\Users\\Administrator"), 0,
-                ("NPT 图片信息", "*.ipf"),
-                ("PNG 图像", "*.png")
+                ("NPT 图片信息", "*.ipf")
             );
             OpenFileDialog.OnFinishSelect += read;
             OpenFileDialog.ShowDialog();
@@ -37,8 +36,8 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
                 int typesCount = br.ReadInt32();
                 for (int i = 0; i < typesCount; i++)
                 {
-                    string type = $"{br.ReadString()} ({Path.GetFileNameWithoutExtension(path)})";
-                    GroupContainer.Add(type);
+                    string type = $"{br.ReadString()}";
+                    GroupContainer.Add(type, Path.GetFileNameWithoutExtension(path));
                 }
                 int imagesCount = br.ReadInt32();
                 for (int i = 0; i < imagesCount; i++)

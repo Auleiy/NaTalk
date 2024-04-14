@@ -1225,9 +1225,9 @@ RectTransform:
   m_Father: {fileID: 1611728335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -8, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &145718515
 MonoBehaviour:
@@ -2144,7 +2144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6726160011019182704, guid: 0af5ef3b4b14d60449c56268848f71cd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -16
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 6726160011019182704, guid: 0af5ef3b4b14d60449c56268848f71cd, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6385,7 +6385,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -6}
-  m_SizeDelta: {x: 1000, y: 36}
+  m_SizeDelta: {x: 1000, y: 32.97}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &769131568
 MonoBehaviour:
@@ -6404,8 +6404,8 @@ MonoBehaviour:
   Width: 1
   Height: 1
   Padding:
-    x: 8
-    y: 0
+    x: 12
+    y: 4
 --- !u!114 &769131569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9328,6 +9328,10 @@ PrefabInstance:
       value: 4285487948
       objectReference: {fileID: 0}
     - target: {fileID: 6537750723878782816, guid: 0af5ef3b4b14d60449c56268848f71cd, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537750723878782816, guid: 0af5ef3b4b14d60449c56268848f71cd, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
@@ -9361,11 +9365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6726160011019182704, guid: 0af5ef3b4b14d60449c56268848f71cd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 6726160011019182704, guid: 0af5ef3b4b14d60449c56268848f71cd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6726160011019182704, guid: 0af5ef3b4b14d60449c56268848f71cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15060,7 +15064,6 @@ GameObject:
   - component: {fileID: 1611728335}
   - component: {fileID: 1611728337}
   - component: {fileID: 1611728336}
-  - component: {fileID: 1611728338}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -15096,7 +15099,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611728334}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
@@ -15127,25 +15130,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611728334}
   m_CullTransparentMesh: 1
---- !u!114 &1611728338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611728334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b62387091b87b479ad5980f7a664a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScrollBar: {fileID: 2047107213}
-  Content: {fileID: 849257657}
-  Value: 0
-  Velocity: 0
-  Drag: 0.75
-  Brake: 0
-  Bounce: 0
 --- !u!1 &1613711407
 GameObject:
   m_ObjectHideFlags: 0
@@ -15275,6 +15259,7 @@ MonoBehaviour:
   Items: []
   ItemTemplate: {fileID: 573341039}
   Name: 
+  File: 
   NameUI: {fileID: 1833738081}
   NameUIMask: {fileID: 1519762111}
 --- !u!1001 &1648229197
@@ -17866,7 +17851,6 @@ GameObject:
   - component: {fileID: 1911549102}
   - component: {fileID: 1911549108}
   - component: {fileID: 1911549105}
-  - component: {fileID: 1911549107}
   m_Layer: 5
   m_Name: ToolTip
   m_TagString: Untagged
@@ -17980,7 +17964,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 20001
   m_TargetDisplay: 0
---- !u!114 &1911549107
+--- !u!114 &1911549108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17997,27 +17981,8 @@ MonoBehaviour:
   Width: 1
   Height: 1
   Padding:
-    x: 16
+    x: 24
     y: 16
---- !u!114 &1911549108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911549100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172967f7391d15c48bc389562416a614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 1392450362}
-  MaxWidth: 1000
-  Width: 1
-  Height: 1
-  Padding:
-    x: 0
-    y: 0
 --- !u!1 &1923689038
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
         public void ButtonPress(ImageSelection item)
         {
             SelectButton.Image = item.Image;
-            SelectButton.Text = $"{item.Group.Name} - {item.Name}";
+            SelectButton.Text = $"{item.Group.File}.{item.Group.Name}.{item.Name}";
             SelectButton.ChangeContent();
             Close();
         }

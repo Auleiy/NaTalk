@@ -12,7 +12,7 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
 
         public GameObject ItemTemplate;
 
-        public string Name;
+        public string Name, File;
         public TMP_Text NameUI;
         public RectTransform NameUIMask;
 
@@ -29,7 +29,7 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
                     -16 - (GetColumnAndLine(i).row * 72));
             }
 
-            NameUI.text = Name;
+            NameUI.text = $"{File}.{Name}";
             NameUIMask.sizeDelta = new(NameUI.preferredWidth + 16, 25);
         }
 
