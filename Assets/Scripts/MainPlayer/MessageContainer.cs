@@ -93,11 +93,10 @@ namespace NPT.MainPlayer
             {
                 GameObject go = Instantiate(AsideTemplate, Container);
                 Aside m = go.GetComponent<Aside>();
-                m.IsTemplate = false;
                 m.TextValue = text;
                 go.SetActive(true);
                 Messages.Add(m);
-                m.Start();
+                m.Initialize();
                 UpdateMessagePosition();
                 GetComponentInParent<ScrollRect>().verticalNormalizedPosition = 0;
                 return m;
@@ -106,7 +105,6 @@ namespace NPT.MainPlayer
             {
                 GameObject go = Instantiate(NormalMessageTemplate, Container);
                 NormalMessage m = go.GetComponent<NormalMessage>();
-                m.IsTemplate = false;
                 m.TextValue = text;
                 m.CharacterId = characterId;
                 m.Direction = direction;
@@ -127,10 +125,9 @@ namespace NPT.MainPlayer
         {
             GameObject go = Instantiate(SpliterTemplate, Container);
             MessageSpliter m = go.GetComponent<MessageSpliter>();
-            m.IsTemplate = false;
             Messages.Add(m);
             go.SetActive(true);
-            m.Start();
+            m.Initialize();
             UpdateMessagePosition();
             GetComponentInParent<ScrollRect>().verticalNormalizedPosition = 0;
             return m;

@@ -1,7 +1,5 @@
 using NPT.Main;
 
-using TMPro;
-
 using UnityEngine;
 
 namespace NPT.MainPlayer
@@ -9,8 +7,7 @@ namespace NPT.MainPlayer
     public abstract class Message : Hideable
     {
         public float Height { get; protected set; }
-        public bool IsTemplate;
-        public TMP_Text Text;
+        public string TextValue;
         public abstract MessageType MessageType { get; }
         public float TopMargin { get; protected set; }
 
@@ -20,17 +17,19 @@ namespace NPT.MainPlayer
         protected MessageContainer Container { get => GetComponentInParent<MessageContainer>(); }
         protected override bool SetActive => false;
 
-        private void Start()
+        public virtual void Awake()
         {
-            OnHide += RemoveInternal;
+            OnHide += Destroy;
         }
 
+        public abstract void Initialize();
+        
         protected int GetId()
         {
             return Container.GetId(this);
         }
 
-        protected virtual void RemoveInternal()
+        protected virtual void Destroy()
         {
             Destroy(gameObject);
         }

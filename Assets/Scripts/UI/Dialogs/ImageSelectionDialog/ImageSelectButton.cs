@@ -14,12 +14,16 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
         public Image ImageUI;
         public TMP_Text TextUI;
 
-        private void Update()
+        public void ChangeContent()
         {
             ImageUI.sprite = Image;
             TextUI.text = Text;
         }
 
-        public void OnClick() => Dialog.ShowDialog();
+        public void OnClick()
+        {
+            Dialog.SelectButton = this;
+            Dialog.ShowDialog();
+        }
     }
 }

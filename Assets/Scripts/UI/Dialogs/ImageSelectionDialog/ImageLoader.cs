@@ -15,6 +15,7 @@ namespace NPT.UI.Dialogs.ImageSelectionDialog
         public ImageGroupContainer GroupContainer;
 
         int pid = 0;
+
         public void Load()
         {
             OpenFileDialog.Reinitialize("打开图片信息", "sk_ImageLoader", (false, "C:\\Users\\Administrator"), 0,

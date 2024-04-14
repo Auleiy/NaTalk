@@ -1,8 +1,9 @@
-﻿// #undef UNITY_EDITOR
+﻿using System.Threading;
 
-using System.Threading;
 using UnityEditor;
+
 using UnityEngine;
+
 using static NPT.Main.StaticValue;
 
 namespace NPT.Main
@@ -11,7 +12,7 @@ namespace NPT.Main
     {
         private int ErrorCount = 0;
 
-        private void Start()
+        private void Awake()
         {
             Application.logMessageReceived += Catch;
             Thread t = new(FlushErrorCount);

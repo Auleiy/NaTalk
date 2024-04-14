@@ -5,6 +5,7 @@ namespace NPT.Main.Types
     public class Dialog : Hideable
     {
         protected override float HideAlpha => 0;
+
         private new void Show(float d)
         {
             base.Show(d);

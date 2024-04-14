@@ -4,9 +4,8 @@ namespace NPT.MainPlayer
     {
         public override MessageType MessageType => MessageType.Spliter;
 
-        public void Start()
+        public override void Initialize()
         {
-            Text = null;
             Height = 0;
             TopMargin = 16;
         }

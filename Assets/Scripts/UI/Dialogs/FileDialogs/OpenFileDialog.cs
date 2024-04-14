@@ -44,10 +44,13 @@ namespace NPT.UI.Dialogs.FileDialogs
 
         private string spl_drive;
 
+        private string sender;
+
         public delegate void OnFinishedSelect(string path);
 
         public void Reinitialize(string title, string senderKey, (bool EnableOnRestart, string Directory) startupDir, int startupFilterIndex, params (string Display, string Filter)[] filters)
         {
+            OnFinishSelect = EmptyMethod;
             gameObject.SetActive(true);
             foreach (FileSelection item in Container.Items)
                 Destroy(item.gameObject);
@@ -60,10 +63,11 @@ namespace NPT.UI.Dialogs.FileDialogs
             FilterIndex = startupFilterIndex;
             ChangePath(startupDir.Directory);
             refreshOnRestart = startupDir.EnableOnRestart;
-            if (refreshOnRestart && openedDirectory.ContainsKey(senderKey))
-                openedDirectory.Remove(senderKey);
-            if (openedDirectory.ContainsKey(senderKey))
-                ChangePath(openedDirectory[senderKey]);
+            sender = senderKey;
+            if (refreshOnRestart && openedDirectory.ContainsKey(sender))
+                openedDirectory.Remove(sender);
+            if (openedDirectory.ContainsKey(sender))
+                ChangePath(openedDirectory[sender]);
             spl_drive = Path.GetPathRoot(OpenedDirectory);
             foreach (TMP_Dropdown.OptionData data in Disk.options)
             {
@@ -78,6 +82,8 @@ namespace NPT.UI.Dialogs.FileDialogs
             ChangeFilterByCode(0);
             Initialized = true;
         }
+
+        private void EmptyMethod(string a) { }
 
         public void Select(string file)
         {
@@ -102,11 +108,14 @@ namespace NPT.UI.Dialogs.FileDialogs
 
         public void ChangePath(string path)
         {
+            if (!Path.GetPathRoot(path).Equals(path))
+                isChangeDiskToChangeNotChildPath = true;
             Disk.value = Disk.options.IndexOf(Path.GetPathRoot(path));
             Disk.RefreshShownValue();
             OpenedDirectory = path;
             DirectoryInputField.text = OpenedDirectory;
             RefreshSelection();
+            isChangeDiskToChangeNotChildPath = false;
         }
 
         public void ChangeDrive(int index)
@@ -117,6 +126,7 @@ namespace NPT.UI.Dialogs.FileDialogs
         }
 
         private bool upArrowShowed = false;
+        private bool isChangeDiskToChangeNotChildPath = false;
 
         private void RefreshSelection()
         {
@@ -136,11 +146,20 @@ namespace NPT.UI.Dialogs.FileDialogs
                 UpArrow.Show(.2f);
                 upArrowShowed = true;
             }
-            if (Directory.GetDirectoryRoot(OpenedDirectory).Equals(OpenedDirectory) && upArrowShowed)
+            if (Directory.GetDirectoryRoot(OpenedDirectory).Equals(OpenedDirectory) && upArrowShowed && !isChangeDiskToChangeNotChildPath)
             {
                 UpArrow.Fade(.2f);
                 upArrowShowed = false;
             }
+        }
+
+        public override void Close()
+        {
+            if (openedDirectory.ContainsKey(sender))
+                openedDirectory[sender] = OpenedDirectory;
+            else
+                openedDirectory.Add(sender, OpenedDirectory);
+            base.Close();
         }
 
         public override void OKPress()
@@ -150,6 +169,10 @@ namespace NPT.UI.Dialogs.FileDialogs
                 MainTipContainer.Create("ÇëÑ¡ÔñÎÄ¼þ", TipType.Error);
                 return;
             }
+            if (openedDirectory.ContainsKey(sender))
+                openedDirectory[sender] = OpenedDirectory;
+            else
+                openedDirectory.Add(sender, OpenedDirectory);
             OnFinishSelect(SelectedFile);
             base.OKPress();
         }

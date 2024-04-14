@@ -54,5 +54,4 @@ namespace NPT.UI.Dialogs.FileDialogs
             return fs;
         }
     }
-
 }

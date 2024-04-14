@@ -9,7 +9,8 @@ namespace NPT.MainPlayer
 {
     public class NormalMessage : Message
     {
-        public string TextValue;
+        public TMP_Text Text;
+
         public int CharacterId;
         public bool Direction;
 
@@ -19,9 +20,14 @@ namespace NPT.MainPlayer
         public RectTransform MessageBox, ControlButtons;
         public float MessageBoxPadding = 8.66f;
 
-        public GameObject PortraitNameAndArrow;
+        public GameObject Decoration;
 
         private bool Fold;
+
+        public override void Initialize()
+        {
+            throw new System.NotImplementedException();
+        }
 
         public void UpdateContent()
         {
@@ -33,19 +39,19 @@ namespace NPT.MainPlayer
 
             if (!Container.IsLastSplit(GetId()))
             {
-                PortraitNameAndArrow.SetActive(false);
+                Decoration.SetActive(false);
                 TopMargin = 10;
                 Fold = true;
             }
             else if (CharacterId != 0)
             {
-                PortraitNameAndArrow.SetActive(true);
-                TopMargin = 30;
+                Decoration.SetActive(true);
+                TopMargin = 32;
                 Fold = false;
             }
             else
             {
-                PortraitNameAndArrow.SetActive(true);
+                Decoration.SetActive(true);
                 TopMargin = 16;
                 Portrait.gameObject.SetActive(false);
                 Name.gameObject.SetActive(false);
