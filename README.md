@@ -1,6 +1,8 @@
 # <p align="center"><img src="./Assets/Sprites/IconVariants/natalk_icon_48.png"/><br>NaTalk</p></font>
 ### 这个项目目前还是半成品，不要认真地用来制作剧情！
 
+### 我们学校组织研学，最近一周左右不会维护
+
 NaTalk 是一个专为《蔚蓝档案》的游戏功能 Momotalk 而生的自定义剧情制作工具。具有原版 Momotalk 的几乎所有功能（发送消息、发送图片）以及原版没有的东西（旁白、语音）。
 
 目前 NaTalk 仍处于开发中，功能并不完整。但是基本的发送消息、旁白什么的也能完成。
